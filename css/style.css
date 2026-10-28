@@ -60,6 +60,19 @@
   --bs-body-font-family: 'Roboto', sans-serif;
 }
 
+/* ===== Botones y badge con la paleta ===== */
+.btn-secondary {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #ECD816;
+  --bs-btn-border-color: #ECD816;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #d4c014;
+  --bs-btn-hover-border-color: #d4c014;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c2af12;
+  --bs-btn-active-border-color: #c2af12;
+}
+
 h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 .navbar, .btn { font-family: 'Montserrat', sans-serif; }
 
@@ -80,4 +93,8 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 
 .footer-link:hover{
     color: var(--bs-secondary);
+}
+
+.text-bg-secondary {
+    color: #000 !important;
 }
