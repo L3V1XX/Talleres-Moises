@@ -46,10 +46,17 @@
   src: url('../fonts/Roboto-Medium.woff') format('woff');
 }
 
-/* Paleta Paletton: sustituir por los colores elegidos */
 :root {
-  --bs-primary: #000000;
-  --bs-secondary: #000000;
+  --bs-primary: #1B4F9C;
+  --bs-primary-rgb: 27, 79, 156;
+  --bs-secondary: #ECD816;
+  --bs-secondary-rgb: 236, 216, 22;
+  --bs-info: #531CA1;
+  --bs-info-rgb: 83, 28, 161;
+  --bs-warning: #EC9D16;
+  --bs-warning-rgb: 236, 157, 22;
+  --bs-dark: #0F3A79;
+  --bs-dark-rgb: 15, 58, 121;
   --bs-body-font-family: 'Roboto', sans-serif;
 }
 
