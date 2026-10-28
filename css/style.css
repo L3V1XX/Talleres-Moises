@@ -60,9 +60,26 @@
   --bs-body-font-family: 'Roboto', sans-serif;
 }
 
+/* ===== Botones y badge con la paleta ===== */
+.btn-secondary {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #ECD816;
+  --bs-btn-border-color: #ECD816;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #d4c014;
+  --bs-btn-hover-border-color: #d4c014;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #c2af12;
+  --bs-btn-active-border-color: #c2af12;
+}
+
 h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 .navbar, .btn { font-family: 'Montserrat', sans-serif; }
 
+
+.navbar {
+  border-bottom: 4px solid var(--bs-secondary);
+}
 
 .navbar-brand {
     padding: 0;
@@ -77,7 +94,32 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
     text-decoration: none;
 }
 
+.hero {
+  background: linear-gradient(135deg, #f4f7fc 0%, #dce8f8 100%);
+}
+
+.btn-hero {
+  border-radius: 50rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-hero:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 .5rem 1rem rgba(15, 58, 121, .25);
+}
+
+.btn-hero .bi-arrow-right {
+  transition: transform .2s ease;
+}
+
+.btn-hero:hover .bi-arrow-right {
+  transform: translateX(4px);
+}
 
 .footer-link:hover{
     color: var(--bs-secondary);
+}
+
+.text-bg-secondary {
+    color: #000 !important;
 }
