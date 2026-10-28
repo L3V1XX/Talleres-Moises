@@ -30,8 +30,8 @@ Web corporativa de un taller de reparación con catálogo de revisiones, tarifas
 |--------|---------|-------------|
 | Landing Page | `index.html` | Jose Manuel |
 | Reserva de cita (formulario) | `reserva.html` | Carmen |
-| Servicios y tarifas | `servicios.html` | [PENDIENTE] |
-| Equipo y contacto | `equipo.html` | [PENDIENTE] |
+| Servicios y tarifas | `servicios.html` | Moises |
+| Equipo y contacto | `equipo.html` | Javier |
 
 ## Enlaces
 
