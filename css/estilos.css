@@ -62,3 +62,12 @@
 
 h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 .navbar, .btn { font-family: 'Montserrat', sans-serif; }
+
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 100px;
+}
