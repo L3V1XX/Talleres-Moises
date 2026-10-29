@@ -142,3 +142,40 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 .card-porque:hover .bi {
   transform: scale(1.2) rotate(-8deg);
 }
+
+.icono-contacto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bs-warning);
+  color: #fff;
+  transition: transform .25s ease, background-color .25s ease;
+}
+
+.card-ubicacion .d-flex:hover .icono-contacto {
+  transform: scale(1.1);
+  background: var(--bs-primary);
+}
+
+/* ===== Ubicación ===== */
+.icono-contacto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bs-warning);
+  color: #fff;
+  transition: transform .25s ease, background-color .25s ease;
+}
+
+.card-ubicacion .d-flex:hover .icono-contacto {
+  transform: scale(1.1);
+  background: var(--bs-primary);
+}
