@@ -123,3 +123,22 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
 .text-bg-secondary {
     color: #000 !important;
 }
+
+/* ===== Cards "Por qué elegirnos" ===== */
+.card-porque {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card-porque:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1rem 1.5rem rgba(15, 58, 121, .2) !important;
+}
+
+.card-porque .bi {
+  display: inline-block;
+  transition: transform .25s ease;
+}
+
+.card-porque:hover .bi {
+  transform: scale(1.2) rotate(-8deg);
+}
