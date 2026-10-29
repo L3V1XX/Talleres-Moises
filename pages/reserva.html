@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Talleres Moises</title>
-    <link rel="icon" href="img/favicon/favicon.ico" sizes="any" />
+    <title>Reserva | Talleres Moises</title>
+    <!-- page lives in /pages, so every local path goes up one level (../) -->
+    <link rel="icon" href="../img/favicon/favicon.ico" sizes="any" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="../img/favicon/favicon-32.png"
     />
-    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,11 +25,11 @@
   </head>
   <body>
     <!-- =========================== NAV =================================== -->
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
         <a class="navbar-brand" href="../index.html">
-          <img src="../img/logo/logo.webp" alt="Talleres Moises" height="156" />
+          <!-- height matches the 100px set in style.css -->
+          <img src="../img/logo/logo.webp" alt="Talleres Moises" height="100" />
         </a>
 
         <button
@@ -46,30 +47,32 @@
         <div class="collapse navbar-collapse" id="menuPrincipal">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="../index.html">
+              <a class="nav-link" href="../index.html">
                 <i class="bi bi-house-fill"></i> Inicio
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../pages/reserva.html">
+              <!-- "active" moved here: this is the Reserva page -->
+              <a class="nav-link active" href="reserva.html">
                 <i class="bi bi-calendar-check"></i> Reserva
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../pages/servicios.html">
+              <a class="nav-link" href="servicios.html">
                 <i class="bi bi-wrench-adjustable"></i> Servicios
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../pages/equipo.html">
+              <a class="nav-link" href="equipo.html">
                 <i class="bi bi-people-fill"></i> Equipo
               </a>
             </li>
           </ul>
 
+          <!-- yellow button comes from .btn-secondary in style.css -->
           <a
             class="btn btn-secondary ms-lg-3 d-none d-lg-inline-block"
-            href="../pages/reserva.html"
+            href="reserva.html"
           >
             Pedir cita
           </a>
@@ -77,6 +80,7 @@
       </div>
     </nav>
     <!-- =========================== MAIN =================================== -->
+    <!-- The responsive is gonna be made with GRID, not flex -->
     <!-- fixed, not scaling with the screen, and with vertical padding -->
     <main class="container py-5">
       <div class="row g-4 g-xl-5">
@@ -86,33 +90,37 @@
           id="appointment-form"
           aria-labelledby="appointment-heading"
         >
-          <div class="card section-card">
+          <!-- plain Bootstrap card; text-body-secondary because .text-secondary is yellow in this palette -->
+          <div class="card shadow-sm border-0">
             <div class="card-body p-4 p-md-5">
               <div
                 class="d-flex flex-wrap align-items-start justify-content-between gap-2 mb-4"
               >
                 <div>
-                  <span
-                    class="eyebrow text-uppercase"
-                    style="color: var(--workshop-accent)"
-                    >Appointment request</span
+                  <span class="text-uppercase fw-semibold small text-primary"
+                    >Reserva una cita</span
                   >
-                  <h2 class="section-heading mb-1" id="appointment-heading">
-                    Tell us what you need
+                  <!-- h2 gets Oswald automatically from style.css -->
+                  <h2 class="mb-1" id="appointment-heading">
+                    Cuéntanos qué necesitas
                   </h2>
-                  <p class="text-secondary mb-0">
-                    Fields marked * are required.
+                  <p class="text-body-secondary mb-0">
+                    Los campos marcados con * son obligatorios.
                   </p>
                 </div>
-                <span class="badge rounded-pill service-badge"
-                  ><i class="bi bi-clock me-1" aria-hidden="true"></i>Quick
-                  request</span
+                <span class="badge rounded-pill text-bg-warning"
+                  ><i class="bi bi-clock me-1" aria-hidden="true"></i>Solicitud
+                  rápida</span
                 >
               </div>
 
+              <!-- ---------------------------------- Main FORM ------------------------------------ -->
               <!-- Accordion is for visual organisation; sections can be opened and closed. -->
+              <!-- FUTURE PHP: switch to method="post" and action="../php/reserva.php" -->
               <form action="#" method="get">
                 <div class="accordion" id="appointmentAccordion">
+                  <!-- ---------------- 1. CLIENTE ---------------- -->
+                  <!-- FUTURE DB: table "clientes" (nombre, telefono, email) -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="customer-heading">
                       <button
@@ -124,7 +132,7 @@
                         aria-controls="customer-details"
                       >
                         <i class="bi bi-person me-2" aria-hidden="true"></i> 1.
-                        Your details
+                        Tus datos
                       </button>
                     </h3>
                     <div
@@ -137,41 +145,47 @@
                         <div class="row g-3">
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(100) -->
                               <input
                                 class="form-control"
                                 type="text"
-                                id="fullName"
-                                name="fullName"
-                                placeholder="Full name"
+                                id="nombre"
+                                name="nombre"
+                                maxlength="100"
+                                placeholder="Nombre completo"
                                 required
                               />
-                              <label for="fullName">Full name *</label>
+                              <label for="nombre">Nombre completo *</label>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(15), enough for +34 and spaces -->
                               <input
                                 class="form-control"
                                 type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="Phone number"
+                                id="telefono"
+                                name="telefono"
+                                maxlength="15"
+                                placeholder="Teléfono"
                                 required
                               />
-                              <label for="phone">Phone number *</label>
+                              <label for="telefono">Teléfono *</label>
                             </div>
                           </div>
                           <div class="col-12">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(100) -->
                               <input
                                 class="form-control"
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="name@example.com"
+                                maxlength="100"
+                                placeholder="nombre@ejemplo.com"
                                 required
                               />
-                              <label for="email">Email address *</label>
+                              <label for="email">Correo electrónico *</label>
                             </div>
                           </div>
                         </div>
@@ -179,6 +193,8 @@
                     </div>
                   </div>
 
+                  <!-- ---------------- 2. VEHÍCULO ---------------- -->
+                  <!-- FUTURE DB: table "vehiculos" (marca, modelo, matricula, anio) linked to the client -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="vehicle-heading">
                       <button
@@ -190,7 +206,7 @@
                         aria-controls="vehicle-details"
                       >
                         <i class="bi bi-car-front me-2" aria-hidden="true"></i>
-                        2. Your vehicle
+                        2. Tu vehículo
                       </button>
                     </h3>
                     <div
@@ -203,56 +219,63 @@
                         <div class="row g-3">
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(50) -->
                               <input
                                 class="form-control"
                                 type="text"
-                                id="vehicleMake"
-                                name="vehicleMake"
-                                placeholder="e.g. Toyota"
+                                id="marca"
+                                name="marca"
+                                maxlength="50"
+                                placeholder="Ej. Toyota"
                                 required
                               />
-                              <label for="vehicleMake">Make *</label>
+                              <label for="marca">Marca *</label>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(50) -->
                               <input
                                 class="form-control"
                                 type="text"
-                                id="vehicleModel"
-                                name="vehicleModel"
-                                placeholder="e.g. Corolla"
+                                id="modelo"
+                                name="modelo"
+                                maxlength="50"
+                                placeholder="Ej. Corolla"
                                 required
                               />
-                              <label for="vehicleModel">Model *</label>
+                              <label for="modelo">Modelo *</label>
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(10), Spanish plates (as the SCOPE) are 7 chars, margin for old formats -->
                               <input
                                 class="form-control text-uppercase"
                                 type="text"
-                                id="registration"
-                                name="registration"
-                                placeholder="Registration plate"
+                                id="matricula"
+                                name="matricula"
+                                maxlength="10"
+                                placeholder="Matrícula"
                               />
-                              <label for="registration"
-                                >Registration plate (optional)</label
+                              <label for="matricula"
+                                >Matrícula (opcional)</label
                               >
                             </div>
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
+                              <!-- year is a number: INT/SMALLINT in the DB; max is hardcoded, PHP should validate it too -->
                               <input
                                 class="form-control"
                                 type="number"
-                                id="vehicleYear"
-                                name="vehicleYear"
+                                id="anio"
+                                name="anio"
                                 min="1950"
                                 max="2026"
-                                placeholder="e.g. 2020"
+                                placeholder="Ej. 2020"
                               />
-                              <label for="vehicleYear">Year (optional)</label>
+                              <label for="anio">Año (opcional)</label>
                             </div>
                           </div>
                         </div>
@@ -260,6 +283,8 @@
                     </div>
                   </div>
 
+                  <!-- ---------------- 3. CITA ---------------- -->
+                  <!-- FUTURE DB: table "citas" + pivot "cita_servicio" (a booking can have many services) -->
                   <div class="accordion-item">
                     <h3
                       class="accordion-header"
@@ -277,7 +302,7 @@
                           class="bi bi-calendar-check me-2"
                           aria-hidden="true"
                         ></i>
-                        3. Appointment details
+                        3. Detalles de la cita
                       </button>
                     </h3>
                     <div
@@ -292,70 +317,174 @@
                             <div
                               class="d-flex flex-wrap align-items-center gap-2 mb-2"
                             >
-                              <label for="service" class="form-label mb-0 me-1"
-                                >Service required *</label
+                              <span class="form-label mb-0 me-1"
+                                >Servicios necesarios *</span
                               >
                               <!-- Bootstrap badges are used as small service labels. -->
-                              <span class="badge rounded-pill service-badge"
+                              <!-- text-bg-secondary = yellow with black text (forced in style.css) -->
+                              <span class="badge rounded-pill text-bg-secondary"
                                 >Popular</span
                               >
                               <span class="badge rounded-pill text-bg-success"
-                                >Free estimate</span
+                                >Presupuesto gratis</span
                               >
                             </div>
-                            <select
-                              class="form-select"
-                              id="service"
-                              name="service"
-                              required
-                            >
-                              <option value="" selected disabled>
-                                Select a service
-                              </option>
-                              <option>Oil and filter change</option>
-                              <option>Routine maintenance</option>
-                              <option>Brake inspection or repair</option>
-                              <option>Tyres and wheel alignment</option>
-                              <option>Engine diagnostics</option>
-                              <option>Other repair</option>
-                            </select>
+
+                            <!-- Several services can be ticked, checkboxes instead of a select multiple is cleaner -->
+                            <!-- name="servicios[]" -> PHP receives them as an array in $_POST["servicios"] -->
+                            <!-- value = future id in the "servicios" table; data-precio = base price in EUR for the JS total (no calc here) -->
+                            <!-- HTML can't make a checkbox group "required": check at least one in JS and PHP -->
+                            <div id="listaServicios" class="row g-2">
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvAceite"
+                                    name="servicios[]"
+                                    value="1"
+                                    data-precio="40"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="srvAceite"
+                                    >Cambio de aceite y filtro</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvMantenimiento"
+                                    name="servicios[]"
+                                    value="2"
+                                    data-precio="120"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="srvMantenimiento"
+                                    >Mantenimiento periódico</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvFrenos"
+                                    name="servicios[]"
+                                    value="3"
+                                    data-precio="90"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="srvFrenos"
+                                    >Revisión o reparación de frenos</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvNeumaticos"
+                                    name="servicios[]"
+                                    value="4"
+                                    data-precio="60"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="srvNeumaticos"
+                                    >Neumáticos y alineado de ruedas</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvDiagnosis"
+                                    name="servicios[]"
+                                    value="5"
+                                    data-precio="45"
+                                  />
+                                  <label
+                                    class="form-check-label"
+                                    for="srvDiagnosis"
+                                    >Diagnosis del motor</label
+                                  >
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-check">
+                                  <!-- price 0 = "to be quoted", the JS total should skip it -->
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="srvOtro"
+                                    name="servicios[]"
+                                    value="6"
+                                    data-precio="0"
+                                  />
+                                  <label class="form-check-label" for="srvOtro"
+                                    >Otra reparación</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- empty on purpose: JS will print the estimated total here later -->
+                            <p
+                              class="small text-body-secondary mt-2 mb-0"
+                              id="totalEstimado"
+                            ></p>
                           </div>
+
                           <div class="col-12 col-md-6">
-                            <label for="preferredDate" class="form-label"
-                              >Preferred date</label
+                            <label for="fecha" class="form-label"
+                              >Fecha preferida</label
                             >
+                            <!-- DATE column; name matches the DB field -->
                             <input
                               class="form-control"
                               type="date"
-                              id="preferredDate"
-                              name="preferredDate"
+                              id="fecha"
+                              name="fecha"
                             />
                           </div>
                           <div class="col-12 col-md-6">
-                            <label for="preferredTime" class="form-label"
-                              >Preferred time</label
+                            <label for="franja" class="form-label"
+                              >Franja horaria preferida</label
                             >
+                            <!-- values are short codes for the DB (ENUM or small table) -->
                             <select
                               class="form-select"
-                              id="preferredTime"
-                              name="preferredTime"
+                              id="franja"
+                              name="franja"
                             >
-                              <option value="" selected>No preference</option>
-                              <option>Morning</option>
-                              <option>Afternoon</option>
+                              <option value="" selected>Sin preferencia</option>
+                              <option value="manana">Mañana</option>
+                              <option value="tarde">Tarde</option>
                             </select>
                           </div>
                           <div class="col-12">
                             <div class="form-floating">
+                              <!-- maxlength = VARCHAR(500) or TEXT -->
                               <textarea
                                 class="form-control"
-                                placeholder="Describe the issue"
-                                id="message"
-                                name="message"
+                                placeholder="Describe el problema"
+                                id="mensaje"
+                                name="mensaje"
+                                maxlength="500"
                                 style="height: 120px"
                               ></textarea>
-                              <label for="message"
-                                >Describe the issue (optional)</label
+                              <label for="mensaje"
+                                >Describe el problema (opcional)</label
                               >
                             </div>
                           </div>
@@ -366,95 +495,134 @@
                 </div>
 
                 <div class="form-check mt-4">
+                  <!-- name added so PHP can read it (unnamed inputs are not sent) -->
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    value="yes"
-                    id="privacy"
+                    value="si"
+                    id="privacidad"
+                    name="privacidad"
                     required
                   />
                   <label
-                    class="form-check-label small text-secondary"
-                    for="privacy"
+                    class="form-check-label small text-body-secondary"
+                    for="privacidad"
                   >
-                    I agree to be contacted about this appointment request. *
+                    Acepto que me contacten sobre esta solicitud de cita. *
                   </label>
                 </div>
-                <!-- ------------- Appointment's Submit Button ------------------- -->
-                <button
-                  type="submit"
-                  class="btn btn-outline-primary btn-lg btn-hero px-4 fw-semibold w-100 mt-4"
-                >
-                  Send appointment request
-                  <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-                </button>
-                <p class="small text-secondary mt-3 mb-0">
-                  <i class="bi bi-info-circle me-1" aria-hidden="true"></i>This
-                  is a design mock-up. No appointment is actually booked.
+                <!-- ------------------------- Main FORM's BUTTONS ----------------------------- -->
+                <div class="row g-2 mt-4">
+                  <div class="col-12 col-md">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg btn-hero px-4 fw-semibold w-100"
+                    >
+                      Enviar solicitud de cita
+                      <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+                    </button>
+                  </div>
+
+                  <div class="col-12 col-md-auto">
+                    <button
+                      type="reset"
+                      class="btn btn-outline-danger btn-lg btn-hero px-4 fw-semibold w-100"
+                    >
+                      <i
+                        class="bi bi-arrow-counterclockwise me-1"
+                        aria-hidden="true"
+                      ></i>
+                      Restablecer
+                    </button>
+                  </div>
+                </div>
+                <p class="small text-body-secondary mt-3 mb-0">
+                  <i class="bi bi-info-circle me-1" aria-hidden="true"></i>Esto
+                  es solo una maqueta de diseño. No se reserva ninguna cita.
                 </p>
               </form>
             </div>
           </div>
         </section>
 
-        <!-- Secondary contact section -->
+        <!-- ---------------------------------- Secondary FORM ------------------------------------ -->
         <aside class="col-12 col-lg-4" aria-labelledby="contact-heading">
-          <div class="contact-panel p-4 p-md-4 mb-4">
-            <span>Need a hand?</span>
-            <h2 class="section-heading mt-2" id="contact-heading">
-              Have a question?
-            </h2>
+          <!-- bg-primary (blue from the palette) so the light text and outline-light button are readable -->
+          <div class="bg-primary text-light rounded-3 shadow-sm p-4 mb-4">
+            <span class="text-uppercase fw-semibold small text-secondary"
+              >¿Necesitas ayuda?</span
+            >
+            <h2 class="mt-2" id="contact-heading">¿Tienes una duda?</h2>
             <p>
-              For general enquiries, use the short form below or contact the
-              workshop directly.
+              Para consultas generales, usa el formulario corto o contacta
+              directamente con el taller.
             </p>
 
+            <!-- FUTURE PHP: separate script (e.g. ../php/consulta.php), table "consultas" -->
             <form action="#" method="get">
               <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(100) -->
                 <input
                   class="form-control"
                   type="text"
-                  id="contactName"
-                  name="contactName"
-                  placeholder="Your name"
+                  id="contactoNombre"
+                  name="contacto_nombre"
+                  maxlength="100"
+                  placeholder="Tu nombre"
                 />
-                <label for="contactName">Your name</label>
+                <label for="contactoNombre" class="text-body-secondary"
+                  >Tu nombre</label
+                >
               </div>
               <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(100) -->
                 <input
                   class="form-control"
                   type="email"
-                  id="contactEmail"
-                  name="contactEmail"
-                  placeholder="name@example.com"
+                  id="contactoEmail"
+                  name="contacto_email"
+                  maxlength="100"
+                  placeholder="nombre@ejemplo.com"
                 />
-                <label for="contactEmail">Email address</label>
+                <label for="contactoEmail" class="text-body-secondary"
+                  >Correo electrónico</label
+                >
               </div>
               <div class="mb-3">
-                <label for="replyMethod" class="form-label"
-                  >Preferred reply method</label
+                <label for="metodoRespuesta" class="form-label"
+                  >Método de respuesta preferido</label
                 >
-                <select class="form-select" id="replyMethod" name="replyMethod">
-                  <option>Email</option>
-                  <option>Phone call</option>
-                  <option>WhatsApp</option>
+                <!-- short codes again, easy to store as ENUM -->
+                <select
+                  class="form-select"
+                  id="metodoRespuesta"
+                  name="metodo_respuesta"
+                >
+                  <option value="email">Correo electrónico</option>
+                  <option value="telefono">Llamada telefónica</option>
+                  <option value="whatsapp">WhatsApp</option>
                 </select>
               </div>
               <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(500) or TEXT -->
                 <textarea
                   class="form-control"
-                  placeholder="Your question"
-                  id="contactMessage"
-                  name="contactMessage"
+                  placeholder="Tu pregunta"
+                  id="contactoMensaje"
+                  name="contacto_mensaje"
+                  maxlength="500"
                   style="height: 110px"
                 ></textarea>
-                <label for="contactMessage">Your question</label>
+                <label for="contactoMensaje" class="text-body-secondary"
+                  >Tu pregunta</label
+                >
               </div>
-              <button type="submit" class="btn btn-outline-light w-100">
-                Send enquiry
+              <!-- --------------  Secondary Form's SUBMIT ------------------------ -->
+              <button type="submit" class="btn btn-secondary w-100">
+                Enviar consulta
               </button>
-              <p class="small-text small mt-3 mb-0">
-                Mock-up only — this form does not send messages.
+              <p class="small opacity-75 mt-3 mb-0">
+                Solo maqueta: este formulario no envía mensajes.
               </p>
             </form>
           </div>
@@ -466,8 +634,9 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-12 col-md-4 text-center text-md-start">
+            <!-- ../added -->
             <img
-              src="img/logo/logo.webp"
+              src="../img/logo/logo.webp"
               alt="Talleres Moises"
               height="70"
               class="mb-3"
@@ -508,13 +677,15 @@
         </div>
 
         <hr class="border-secondary" />
+        <!-- my name over here, 'coz I say so -->
         <p class="text-center small mb-0">
-          &copy; 2026 Talleres Moises · Todo los derechos reservados
+          &copy; 2026 Talleres Moises · Todo los derechos reservados para CARMEN
         </p>
       </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/codigo.js"></script>
+    <!-- ../ added: the JS folder is at the root, not inside /pages -->
+    <script src="../js/codigo.js"></script>
   </body>
 </html>
