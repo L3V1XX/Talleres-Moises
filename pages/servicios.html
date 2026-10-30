@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talleres Moises</title>
+    <title>Talleres Moisés - Servicios y Tarifas</title>
     <link rel="icon" href="../img/favicon/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32.png">
     <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- Navegacion -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="../index.html">
@@ -55,18 +56,459 @@
             </div>
         </div>
     </nav>
+
+    <!-- Contenido principal -->
     <main class="container my-5">
 
+        <header class="text-center mb-5">
+            <span class="badge bg-primary px-3 py-2 fs-6 rounded-pill mb-2">
+                <i class="bi bi-shield-check me-1"></i> Talleres Moisés
+            </span>
+            <h1 class="display-4 fw-bold text-dark">Nuestros Servicios y Tarifas</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                Consulta nuestros paquetes de mantenimiento y tarifas orientativas con garantía oficial del fabricante.
+            </p>
+        </header>
 
+        <!-- Carrusel de cards -->
+        <section class="mb-5">
+            <h2 class="h3 mb-4 text-secondary border-bottom pb-2">
+                <i class="bi bi-star-fill text-warning me-2"></i> Servicios Destacados
+            </h2>
 
+            <div id="carruselServicios" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
 
+                    <!-- Card 1: Cambio de Aceite y Filtro -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/aceite-filtro.jpeg" class="card-img-top object-fit-cover" alt="Cambio de aceite y filtro" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Cambio de Aceite y Filtro</h5>
+                                        <p class="card-text text-muted">
+                                            Sustitución de lubricante con aceite sintético de alta calidad adaptado a la especificación de tu motor, cambio de filtro de aceite original, revisión de niveles de fluidos secundarios y reseteo del indicador de mantenimiento en el cuadro.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">65,00 €</span>
+                                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalAceite">
+                                                <i class="bi bi-info-circle"></i> Detalles
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Card 2: Mantenimiento Periódico -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/mantenimiento-periodico.jpeg" class="card-img-top object-fit-cover" alt="Mantenimiento Periódico" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Mantenimiento Periódico</h5>
+                                        <p class="card-text text-muted">
+                                            Revisión completa según el programa oficial del fabricante. Incluye sustitución de filtros de aire, polen y combustible, revisión de 25 puntos de seguridad (frenos, amortiguadores, luces y correas) y diagnosis preventiva de estado.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">120,00 €</span>
+                                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalMantenimiento">
+                                                <i class="bi bi-info-circle"></i> Detalles
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Card 3: Revisión o Reparación de Frenos -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/reparacion-frenos.jpeg" class="card-img-top object-fit-cover" alt="Revisión o reparación de frenos" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Revisión o Reparación de Frenos</h5>
+                                        <p class="card-text text-muted">
+                                            Inspección del desgaste en discos y pastillas, sustitución de componentes fatigados con recambios homologados, purgado y renovación del líquido de frenos DOT4, e inspección en banco de frenado para verificar eficacia.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">85,00 €</span>
+                                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalFrenos">
+                                                <i class="bi bi-info-circle"></i> Detalles
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Card 4: Neumáticos y Alineado de Ruedas -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/neumaticos-alineado.jpeg" class="card-img-top object-fit-cover" alt="Neumáticos y alineado de ruedas" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Neumáticos y Alineado de Ruedas</h5>
+                                        <p class="card-text text-muted">
+                                            Inspección de desgaste del dibujo y presión, sustitución o permutado de cubiertas, equilibrado dinámico de ruedas e inspección de geometría de dirección por computador 3D para asegurar un desgaste uniforme.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">45,00 €</span>
+                                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalNeumaticos">
+                                                <i class="bi bi-info-circle"></i> Detalles
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Diagnosis del Motor -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/diagnosis-motor.jpeg" class="card-img-top object-fit-cover" alt="Diagnosis del motor" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Diagnosis del Motor</h5>
+                                        <p class="card-text text-muted">
+                                            Conexión con maquina de diagnosis multimarca avanzada al puerto OBD2, escaneo de fallos memorizados en las centralitas (ECU, ABS, Airbag), borrado de testigos y análisis de lecturas de sensores en tiempo real.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">35,00 €</span>
+                                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDiagnosis">
+                                                <i class="bi bi-info-circle"></i> Detalles
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Otra Reparación -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <div class="card h-100 shadow-sm border-0">
+                                    <img src="../img/servicios/otra-reparacion.jpeg" class="card-img-top object-fit-cover" alt="Otra reparación" style="height: 220px;">
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title fw-bold">Otra Reparación</h5>
+                                        <p class="card-text text-muted">
+                                            Reparaciones de embrague, correa de distribución, suspensión o cualquier avería mecánica o eléctrica específica.
+                                        </p>
+                                        <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold text-primary">A consultar</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botones de navegación del carrusel -->
+                <button class="carousel-control-prev w-auto" type="button" data-bs-target="#carruselServicios" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next w-auto" type="button" data-bs-target="#carruselServicios" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Tabla de datos -->
+        <section class="mb-5">
+            <h2 class="h3 mb-4 text-secondary border-bottom pb-2">
+                <i class="bi bi-table me-2"></i> Tabla Orientativa de Tarifas
+            </h2>
+            <div class="table-responsive shadow-sm rounded">
+                <table class="table table-hover table-striped align-middle mb-0">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col"><i class="bi bi-wrench me-1"></i> Operación / Servicio</th>
+                            <th scope="col" class="d-none d-md-table-cell"><i class="bi bi-clock me-1"></i> Tiempo Estimado</th>
+                            <th scope="col"><i class="bi bi-shield-check me-1"></i> Garantía</th>
+                            <th scope="col" class="text-end"><i class="bi bi-currency-euro me-1"></i> Precio Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">Cambio de batería (incluye reciclaje)</td>
+                            <td class="d-none d-md-table-cell">30 min</td>
+                            <td><span class="badge bg-success">2 Años</span></td>
+                            <td class="text-end fw-bold">Desde 75,00 €</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Alineación de dirección por eje</td>
+                            <td class="d-none d-md-table-cell">45 min</td>
+                            <td><span class="badge bg-success">6 Meses</span></td>
+                            <td class="text-end fw-bold">40,00 €</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Sustitución de kit de distribución</td>
+                            <td class="d-none d-md-table-cell">4 horas</td>
+                            <td><span class="badge bg-success">2 Años</span></td>
+                            <td class="text-end fw-bold">Desde 320,00 €</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Cambio y equilibrado de neumáticos (unidad)</td>
+                            <td class="d-none d-md-table-cell">20 min</td>
+                            <td><span class="badge bg-success">Oficial Fabricante</span></td>
+                            <td class="text-end fw-bold">Desde 55,00 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Preguntas frecuentes -->
+        <section class="mb-5">
+            <h2 class="h3 mb-4 text-secondary border-bottom pb-2">
+                <i class="bi bi-question-circle-fill me-2"></i> Preguntas Frecuentes
+            </h2>
+            <div class="accordion shadow-sm" id="accordionServicios">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true">
+                            ¿Pierdo la garantía oficial de mi coche al revisarlo en Talleres Moisés?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            <strong>No.</strong> Según la normativa europea, puedes realizar el mantenimiento de tu
+                            vehículo en cualquier taller multimarca sin perder la garantía legal del fabricante.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo">
+                            ¿Ofrecen vehículo de sustitución durante la reparación?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Disponemos de flota de vehículos de sustitución bajo reserva previa para reparaciones
+                            superiores a 24 horas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ir a reserva -->
+        <section class="p-4 p-md-5 bg-primary text-white rounded-3 shadow text-center mb-5">
+            <h2 class="display-6 fw-bold mb-3"><i class="bi bi-calendar-check me-2"></i> ¿Necesitas realizar un mantenimiento?</h2>
+            <p class="fs-5 mb-4 opacity-75">Reserva tu cita previa directamente desde nuestro sistema online y evita esperas innecesarias.</p>
+            <a href="reserva.html" class="btn btn-secondary btn-lg btn-hero px-4 fw-semibold">
+                <i class="bi bi-clock-history me-2"></i> Solicitar Cita Previa
+            </a>
+        </section>
 
     </main>
 
-    <script src="js/codigo.js"></script>
+    <!-- Modales de detalles -->
+    
+    <!-- Modal: Cambio de Aceite y Filtro -->
+    <div class="modal fade" id="modalAceite" tabindex="-1" aria-labelledby="modalAceiteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalAceiteLabel">
+                        <i class="bi bi-droplet-half me-2"></i> Detalles: Cambio de Aceite y Filtro
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>El servicio de cambio de lubricante es fundamental para prolongar la vida útil del motor y garantizar su máximo rendimiento.</p>
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">¿Qué incluye este servicio?</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sustitución de aceite sintético según especificaciones del fabricante.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sustitución del filtro de aceite original.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Comprobación y rellenado de niveles (refrigerante, frenos, limpiaparabrisas).</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Reseteo del intervalo de mantenimiento en el cuadro.</li>
+                    </ul>
+                    <div class="alert alert-light border mt-3 mb-0">
+                        <strong>Tiempo estimado:</strong> 45 minutos aprox.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Mantenimiento Periódico -->
+    <div class="modal fade" id="modalMantenimiento" tabindex="-1" aria-labelledby="modalMantenimientoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalMantenimientoLabel">
+                        <i class="bi bi-tools me-2"></i> Detalles: Mantenimiento Periódico
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Revisión oficial preventiva diseñada para mantener la garantía de tu vehículo y asegurar un funcionamiento sin averías.</p>
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">¿Qué incluye este servicio?</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Cambio de aceite sintético y filtro de aceite.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sustitución del filtro de aire y filtro de habitáculo (polen).</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Inspección técnica de 25 puntos clave de seguridad (frenos, amortiguación, correas, batería).</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Diagnosis electrónica general de averías memorizadas.</li>
+                    </ul>
+                    <div class="alert alert-light border mt-3 mb-0">
+                        <strong>Tiempo estimado:</strong> 2 horas aprox.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Revisión o Reparación de Frenos -->
+    <div class="modal fade" id="modalFrenos" tabindex="-1" aria-labelledby="modalFrenosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalFrenosLabel">
+                        <i class="bi bi-disc me-2"></i> Detalles: Revisión y Frenos
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Garantiza la máxima respuesta de frenado comprobando y sustituyendo los elementos de fricción desgastados.</p>
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">¿Qué incluye este servicio?</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Comprobación del estado y grosor de pastillas y discos delanteros/traseros.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Sustitución de pastillas de freno con recambio homologado.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Purgado del circuito y verificación del líquido de frenos (DOT4).</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Test final de frenada en banco dinamométrico.</li>
+                    </ul>
+                    <div class="alert alert-light border mt-3 mb-0">
+                        <strong>Tiempo estimado:</strong> 1 hora y 15 minutos aprox.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Neumáticos y Alineado de Ruedas -->
+    <div class="modal fade" id="modalNeumaticos" tabindex="-1" aria-labelledby="modalNeumaticosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalNeumaticosLabel">
+                        <i class="bi bi-circle-styled me-2"></i> Detalles: Neumáticos y Alineado
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Asegura una perfecta adherencia en carretera y evita el desgaste irregular de los neumáticos.</p>
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">¿Qué incluye este servicio?</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Inspección del dibujo, desgaste y presión de aire.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Equilibrado dinámico de ruedas para eliminar vibraciones.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Alineación de dirección con tecnología láser 3D.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Revisión de válvulas y estanqueidad del neumático.</li>
+                    </ul>
+                    <div class="alert alert-light border mt-3 mb-0">
+                        <strong>Tiempo estimado:</strong> 1 hora aprox.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Diagnosis del Motor -->
+    <div class="modal fade" id="modalDiagnosis" tabindex="-1" aria-labelledby="modalDiagnosisLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalDiagnosisLabel">
+                        <i class="bi bi-cpu me-2"></i> Detalles: Diagnosis del Motor
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Análisis electrónico integral para detectar la causa exacta de fallos, tirones o luces de avería en el salpicadero.</p>
+                    <h6 class="fw-bold border-bottom pb-1 mb-2">¿Qué incluye este servicio?</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Escaneo de centralita (ECU) mediante máquina multimarca OBD2.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Lectura e interpretación de códigos de error almacenados.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Borrado de testigos de avería tras subsanación.</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Entrega de informe técnico con los datos leídos en tiempo real.</li>
+                    </ul>
+                    <div class="alert alert-light border mt-3 mb-0">
+                        <strong>Tiempo estimado:</strong> 30 minutos aprox.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-12 col-md-4 text-center text-md-start">
+                    <img src="../img/logo/logo.webp" alt="Talleres Moises" height="70" class="mb-3">
+                    <p class="small mb-0">Mecánica · Reparación<br>Profesionalidad y confianza</p>
+                </div>
+
+                <div class="col-6 col-md-4 text-md-center">
+                    <h5 class="text-secondary">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="footer-link text-decoration-none text-light opacity-75" href="../index.html">Inicio</a></li>
+                        <li><a class="footer-link text-decoration-none text-light opacity-75" href="../pages/reserva.html">Reserva</a></li>
+                        <li><a class="footer-link text-decoration-none text-light opacity-75" href="../pages/servicios.html">Servicios</a></li>
+                        <li><a class="footer-link text-decoration-none text-light opacity-75" href="../pages/equipo.html">Equipo</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <h5 class="text-secondary">Contacto</h5>
+                    <ul class="list-unstyled small">
+                        <li><i class="bi bi-geo-alt-fill text-warning me-1"></i> Calle Ejemplo, 12</li>
+                        <li><i class="bi bi-telephone-fill text-warning me-1"></i> 600 000 000</li>
+                        <li><i class="bi bi-envelope-fill text-warning me-1"></i> info@talleresmoises.es</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+            <p class="text-center small mb-0">
+                &copy; 2026 Talleres Moisés · Todos los derechos reservados
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS LOCAL Y BOOTSTRAP CDN -->
+    <script src="../js/codigo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
