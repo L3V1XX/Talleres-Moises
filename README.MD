@@ -29,9 +29,9 @@ Web corporativa de un taller de reparación con catálogo de revisiones, tarifas
 | Página | Archivo | Responsable |
 |--------|---------|-------------|
 | Landing Page | `index.html` | Jose Manuel |
-| Reserva de cita (formulario) | `reserva.html` | Carmen |
-| Servicios y tarifas | `servicios.html` | Moises |
-| Equipo y contacto | `equipo.html` | Javier |
+| Reserva de cita (formulario) | `pages/reserva.html` | Carmen |
+| Servicios y tarifas | `pages/servicios.html` | Moises |
+| Equipo y contacto | `pages/equipo.html` | Javier |
 
 ## Enlaces
 
@@ -77,10 +77,11 @@ Cargadas en local en formato WOFF desde la carpeta `fonts/`.
 ```
 Talleres-Moises/
 ├── css/
-│   └── estilos.css
+│   └── style.css
 ├── fonts/               # Oswald, Roboto y Montserrat (.woff)
 ├── img/
 │   ├── logo/
+│   ├── favicon/
 │   ├── landing/
 │   ├── reserva/
 │   ├── servicios/
@@ -94,6 +95,10 @@ Talleres-Moises/
 ├── sql/                 # segunda parte
 │   ├── backup.sql
 │   └── imagen_diagrama_E-R
+├── pages/
+│   ├── reserva.html
+│   ├── servicios.html
+│   └── equipo.html
 ├── index.html
 └── README.MD
 ```
