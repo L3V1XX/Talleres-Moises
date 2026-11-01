@@ -102,11 +102,3 @@ Talleres-Moises/
 ├── index.html
 └── README.MD
 ```
-
-## Ejecución
-
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/L3V1XX/Talleres-Moises.git
-   ```
-2. Abrir `index.html` en el navegador (o servir la carpeta con Live Server).
