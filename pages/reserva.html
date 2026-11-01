@@ -80,13 +80,106 @@
       </div>
     </nav>
     <!-- =========================== MAIN =================================== -->
-    <!-- The responsive is gonna be made with GRID, not flex -->
-    <!-- fixed, not scaling with the screen, and with vertical padding -->
+     <!-- fixed, not scaling with the screen, and with vertical padding -->
     <main class="container py-5">
+      <!-- The responsive is gonna be made with GRID, not flex. I use ORDER to sort elements depending on the layout -->
+      <!-- ---------------------------------- Secondary FORM ------------------------------------ -->
       <div class="row g-4 g-xl-5">
-        <!-- Main appointment form -->
+        <!-- First when lg and third below -->
+        <aside
+          class="col-12 col-lg-3 order-3 order-lg-1"
+          aria-labelledby="contact-heading"
+        >
+          <!-- bg-primary (blue from the palette) so the light text and outline-light button are readable -->
+          <div class="bg-primary text-light rounded-3 shadow-sm p-4 mb-4">
+            <span class="text-uppercase fw-semibold small text-secondary"
+              >¿Necesitas ayuda?</span
+            >
+            <!-- Margin botton just when not displaying the following <p> in sx -->
+            <h2 class="mt-2 mb-3 mb-sm-0" id="contact-heading">
+              ¿Tienes una duda?
+            </h2>
+            <!-- --------------------- THIS PARAGRAPH DOESN'T APPEAR IN THE XS LAYOUT ------------------------ -->
+            <p class="d-none d-sm-block">
+              Para consultas generales, usa el formulario corto o contacta
+              directamente con el taller.
+            </p>
+
+            <!-- FUTURE PHP: separate script (e.g. ../php/consulta.php), table "consultas" -->
+            <form action="#" method="get">
+              <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(100) -->
+                <input
+                  class="form-control"
+                  type="text"
+                  id="contactoNombre"
+                  name="contacto_nombre"
+                  maxlength="100"
+                  placeholder="Tu nombre"
+                />
+                <label for="contactoNombre" class="text-body-secondary"
+                  >Tu nombre</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(100) -->
+                <input
+                  class="form-control"
+                  type="email"
+                  id="contactoEmail"
+                  name="contacto_email"
+                  maxlength="100"
+                  placeholder="nombre@ejemplo.com"
+                />
+                <label for="contactoEmail" class="text-body-secondary"
+                  >Correo electrónico</label
+                >
+              </div>
+              <div class="mb-3">
+                <label for="metodoRespuesta" class="form-label"
+                  >Método de respuesta preferido</label
+                >
+                <!-- short codes again, easy to store as ENUM -->
+                <select
+                  class="form-select"
+                  id="metodoRespuesta"
+                  name="metodo_respuesta"
+                >
+                  <option value="email">Correo electrónico</option>
+                  <option value="telefono">Llamada telefónica</option>
+                  <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+              <div class="form-floating mb-3">
+                <!-- maxlength = VARCHAR(500) or TEXT -->
+                <textarea
+                  class="form-control"
+                  placeholder="Tu pregunta"
+                  id="contactoMensaje"
+                  name="contacto_mensaje"
+                  maxlength="500"
+                  style="height: 110px"
+                ></textarea>
+                <label for="contactoMensaje" class="text-body-secondary"
+                  >Tu pregunta</label
+                >
+              </div>
+              <!-- --------------  Secondary Form's SUBMIT ------------------------ -->
+              <button type="submit" class="btn btn-secondary w-100">
+                Enviar consulta
+              </button>
+              <p class="small opacity-75 mt-3 mb-0">
+                Solo maqueta: este formulario no envía mensajes.
+              </p>
+            </form>
+          </div>
+        </aside>
+
+        <!-- ---------------------------------- Main FORM ------------------------------------ -->
+        <!-- Main appointment form GRID -->
+        <!-- First below lg; second from lg upwards -->
         <section
-          class="col-12 col-lg-8"
+          class="col-12 col-lg-6 order-1 order-lg-2"
           id="appointment-form"
           aria-labelledby="appointment-heading"
         >
@@ -108,19 +201,21 @@
                     Los campos marcados con * son obligatorios.
                   </p>
                 </div>
-                <span class="badge rounded-pill text-bg-warning"
+                <!-- NOT DISLAYED IN XS -->
+                <span
+                  class="badge rounded-pill text-bg-warning d-none d-sm-inline"
                   ><i class="bi bi-clock me-1" aria-hidden="true"></i>Solicitud
                   rápida</span
                 >
               </div>
-
-              <!-- ---------------------------------- Main FORM ------------------------------------ -->
-              <!-- Accordion is for visual organisation; sections can be opened and closed. -->
+              <!-- Accordion, organizing sections -->
               <!-- FUTURE PHP: switch to method="post" and action="../php/reserva.php" -->
               <form action="#" method="get">
                 <div class="accordion" id="appointmentAccordion">
                   <!-- ---------------- 1. CLIENTE ---------------- -->
-                  <!-- FUTURE DB: table "clientes" (nombre, telefono, email) -->
+                  <!-- ????FUTURE DB: table "clientes" (nombre, telefono, email) -->
+                  <!-- BUT since is gonna be ONE TABLE PER PAGE -->
+                  <!-- Maybe just the table CITAS with a compose primary key assuming one client is not gonna take the same car to the workshop in the same date -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="customer-heading">
                       <button
@@ -194,7 +289,9 @@
                   </div>
 
                   <!-- ---------------- 2. VEHÍCULO ---------------- -->
-                  <!-- FUTURE DB: table "vehiculos" (marca, modelo, matricula, anio) linked to the client -->
+                  <!-- ?????FUTURE DB: table "vehiculos" (marca, modelo, matricula, anio) linked to the client -->
+                  <!-- BUT since is gonna be ONE TABLE PER PAGE, I'mma assume EVERY CLIENT has/had/will have JUST ONE CAR (EVER) -->
+                  <!-- Or just the table CITAS with a compose primary key assuming one client is not gonna take the same car to the workshop in the same date -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="vehicle-heading">
                       <button
@@ -265,7 +362,7 @@
                           </div>
                           <div class="col-12 col-md-6">
                             <div class="form-floating">
-                              <!-- year is a number: INT/SMALLINT in the DB; max is hardcoded, PHP should validate it too -->
+                              <!-- year is a number: INT/SMALLINT in the DB; PHP/JS should validate it too -->
                               <input
                                 class="form-control"
                                 type="number"
@@ -320,9 +417,11 @@
                               <span class="form-label mb-0 me-1"
                                 >Servicios necesarios *</span
                               >
-                              <!-- Bootstrap badges are used as small service labels. -->
+                              <!-- More badges -->
                               <!-- text-bg-secondary = yellow with black text (forced in style.css) -->
-                              <span class="badge rounded-pill text-bg-secondary"
+                              <!-- NOT DISLAYED IN XS -->
+                              <span
+                                class="badge rounded-pill text-bg-secondary d-none d-sm-inline"
                                 >Popular</span
                               >
                               <span class="badge rounded-pill text-bg-success"
@@ -438,9 +537,9 @@
                               </div>
                             </div>
 
-                            <!-- empty on purpose: JS will print the estimated total here later -->
+                            <!-- just for xs, empty on purpose: JS will show the estimation here -->
                             <p
-                              class="small text-body-secondary mt-2 mb-0"
+                              class="small text-body-secondary mt-2 mb-0 d-md-none"
                               id="totalEstimado"
                             ></p>
                           </div>
@@ -461,7 +560,7 @@
                             <label for="franja" class="form-label"
                               >Franja horaria preferida</label
                             >
-                            <!-- values are short codes for the DB (ENUM or small table) -->
+                            <!-- values are short codes for the DB (maybe an ENUM) -->
                             <select
                               class="form-select"
                               id="franja"
@@ -516,9 +615,9 @@
                   <div class="col-12 col-md">
                     <button
                       type="submit"
-                      class="btn btn-primary btn-lg btn-hero px-4 fw-semibold w-100"
+                      class="btn btn-secondary btn-lg btn-hero px-4 fw-semibold w-100"
                     >
-                      Enviar solicitud de cita
+                      Solicitar cita
                       <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
                     </button>
                   </div>
@@ -545,88 +644,72 @@
           </div>
         </section>
 
-        <!-- ---------------------------------- Secondary FORM ------------------------------------ -->
-        <aside class="col-12 col-lg-4" aria-labelledby="contact-heading">
-          <!-- bg-primary (blue from the palette) so the light text and outline-light button are readable -->
-          <div class="bg-primary text-light rounded-3 shadow-sm p-4 mb-4">
-            <span class="text-uppercase fw-semibold small text-secondary"
-              >¿Necesitas ayuda?</span
-            >
-            <h2 class="mt-2" id="contact-heading">¿Tienes una duda?</h2>
-            <p>
-              Para consultas generales, usa el formulario corto o contacta
-              directamente con el taller.
-            </p>
+        <!-- --------------------------- APPOINMENT SUMMARY ------------------------- -->
+        <!-- Hidden below md; third when lg and second when md -->
+        <div class="col-12 col-lg-3 d-none d-md-block order-md-2 order-lg-3">
+          <div class="row g-4">
+            <!-- Appointment summary: JS will fill the list and total later (reads data-precio from the checkboxes) -->
+            <div class="col-md-6 col-lg-12">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-header bg-white fw-semibold">
+                  <i
+                    class="bi bi-receipt text-warning me-2"
+                    aria-hidden="true"
+                  ></i
+                  >Resumen de tu cita
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled mb-3" id="resumenServicios">
+                    <li class="text-body-secondary small">
+                      Aún no has elegido servicios.
+                    </li>
+                  </ul>
+                  <div
+                    class="d-flex justify-content-between align-items-center border-top pt-3"
+                  >
+                    <span>Total estimado</span>
+                    <span class="fw-semibold" id="resumenTotal">0 €</span>
+                  </div>
+                  <p class="small text-body-secondary mt-2 mb-0">
+                    Precio orientativo. Presupuesto final sin compromiso.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <!-- FUTURE PHP: separate script (e.g. ../php/consulta.php), table "consultas" -->
-            <form action="#" method="get">
-              <div class="form-floating mb-3">
-                <!-- maxlength = VARCHAR(100) -->
-                <input
-                  class="form-control"
-                  type="text"
-                  id="contactoNombre"
-                  name="contacto_nombre"
-                  maxlength="100"
-                  placeholder="Tu nombre"
-                />
-                <label for="contactoNombre" class="text-body-secondary"
-                  >Tu nombre</label
+            <!-- Opening hours: short version of the landpage's one -->
+            <div class="col-md-6 col-lg-12">
+              <div class="card h-100 shadow-sm border-0">
+                <div
+                  class="card-header bg-white d-flex justify-content-between align-items-center"
                 >
+                  <span class="fw-semibold"
+                    ><i
+                      class="bi bi-clock text-warning me-2"
+                      aria-hidden="true"
+                    ></i
+                    >Horario</span
+                  >
+                  <span class="badge text-bg-success">Abierto</span>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Lunes a viernes</span
+                    ><span class="fw-semibold">8:30 - 18:00</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Sábados</span
+                    ><span class="fw-semibold">9:00 - 13:00</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Domingos y festivos</span
+                    ><span class="badge text-bg-danger">Cerrado</span>
+                  </li>
+                </ul>
               </div>
-              <div class="form-floating mb-3">
-                <!-- maxlength = VARCHAR(100) -->
-                <input
-                  class="form-control"
-                  type="email"
-                  id="contactoEmail"
-                  name="contacto_email"
-                  maxlength="100"
-                  placeholder="nombre@ejemplo.com"
-                />
-                <label for="contactoEmail" class="text-body-secondary"
-                  >Correo electrónico</label
-                >
-              </div>
-              <div class="mb-3">
-                <label for="metodoRespuesta" class="form-label"
-                  >Método de respuesta preferido</label
-                >
-                <!-- short codes again, easy to store as ENUM -->
-                <select
-                  class="form-select"
-                  id="metodoRespuesta"
-                  name="metodo_respuesta"
-                >
-                  <option value="email">Correo electrónico</option>
-                  <option value="telefono">Llamada telefónica</option>
-                  <option value="whatsapp">WhatsApp</option>
-                </select>
-              </div>
-              <div class="form-floating mb-3">
-                <!-- maxlength = VARCHAR(500) or TEXT -->
-                <textarea
-                  class="form-control"
-                  placeholder="Tu pregunta"
-                  id="contactoMensaje"
-                  name="contacto_mensaje"
-                  maxlength="500"
-                  style="height: 110px"
-                ></textarea>
-                <label for="contactoMensaje" class="text-body-secondary"
-                  >Tu pregunta</label
-                >
-              </div>
-              <!-- --------------  Secondary Form's SUBMIT ------------------------ -->
-              <button type="submit" class="btn btn-secondary w-100">
-                Enviar consulta
-              </button>
-              <p class="small opacity-75 mt-3 mb-0">
-                Solo maqueta: este formulario no envía mensajes.
-              </p>
-            </form>
+            </div>
           </div>
-        </aside>
+        </div>
       </div>
     </main>
     <!-- =========================== FOOTER =================================== -->
@@ -679,7 +762,7 @@
         <hr class="border-secondary" />
         <!-- my name over here, 'coz I say so -->
         <p class="text-center small mb-0">
-          &copy; 2026 Talleres Moises · Todo los derechos reservados para CARMEN
+          &copy; 2026 Talleres Moisés · Todo los derechos reservados · Carmen Díaz Muñoz
         </p>
       </div>
     </footer>
