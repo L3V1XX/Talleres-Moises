@@ -215,7 +215,7 @@
                   <!-- ---------------- 1. CLIENTE ---------------- -->
                   <!-- ????FUTURE DB: table "clientes" (nombre, telefono, email) -->
                   <!-- BUT since is gonna be ONE TABLE PER PAGE -->
-                  <!-- Maybe just the table CITAS with a compose primary key assuming one client is not gonna take the same car to the workshop in the same date -->
+                  <!-- Maybe just the table CITAS with a composed primary key assuming one client is not gonna take the same car to the workshop in the same date -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="customer-heading">
                       <button
@@ -291,7 +291,7 @@
                   <!-- ---------------- 2. VEHÍCULO ---------------- -->
                   <!-- ?????FUTURE DB: table "vehiculos" (marca, modelo, matricula, anio) linked to the client -->
                   <!-- BUT since is gonna be ONE TABLE PER PAGE, I'mma assume EVERY CLIENT has/had/will have JUST ONE CAR (EVER) -->
-                  <!-- Or just the table CITAS with a compose primary key assuming one client is not gonna take the same car to the workshop in the same date -->
+                  <!-- Or just the table CITAS with a composed primary key assuming one client is not gonna take the same car to the workshop in the same date -->
                   <div class="accordion-item">
                     <h3 class="accordion-header" id="vehicle-heading">
                       <button
@@ -768,7 +768,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- ../ added: the JS folder is at the root, not inside /pages -->
-    <script src="../js/codigo.js"></script>
   </body>
 </html>
